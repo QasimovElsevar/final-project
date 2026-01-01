@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route, NavLink } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
-import Explore from "./pages/Explore";
-import Downloaded from "./pages/Downloaded";
+import Home from "./pages/home/Home";
+import Profile from "./pages/profile/Profile";
+import Explore from "./pages/explore/Explore";
+import Downloaded from "./pages/downloaded/Downloaded";
 
 export default function App() {
   return (
