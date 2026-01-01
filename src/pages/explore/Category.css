@@ -1,0 +1,79 @@
+.catSection {
+  padding: 18px 16px 8px;
+}
+
+.catTitle {
+  margin: 0 0 12px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.catWrap {
+  position: relative;
+}
+
+.catScroller {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 6px 44px;        /* space for buttons */
+  scrollbar-width: none;     /* Firefox hide scrollbar */
+}
+.catScroller::-webkit-scrollbar { display: none; }
+
+.catCard {
+  flex: 0 0 260px;
+}
+
+.catImgWrap {
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f2f2f2;
+}
+
+.catImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.catMeta {
+  padding-top: 10px;
+}
+
+.catName {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.catCount {
+  margin-top: 4px;
+  font-size: 13px;
+  color: #666;
+}
+
+.catBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-55%);
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+
+.catBtnLeft { left: 6px; }
+.catBtnRight { right: 6px; }
+
+.catBtn:active { transform: translateY(-55%) scale(0.98); }
+

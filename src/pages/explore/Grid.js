@@ -1,4 +1,4 @@
-import "./pages/explore/ImageGrid.css";
+import "./ImageGrid.css";
 
 export default function ImageGrid({ images }) {
   return (
