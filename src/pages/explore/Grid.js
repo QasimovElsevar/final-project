@@ -1,7 +1,9 @@
 import "./ImageGrid.css";
 
-export default function ImageGrid({ images }) {
+export default function ImageGrid({ images, title = "Nature Images"  }) {
   return (
+    <section className="container">
+    <h2 className="catTitle">{title}</h2>
     <div className="masonry">
       {images.map((img) => (
         <a
@@ -19,5 +21,6 @@ export default function ImageGrid({ images }) {
         </a>
       ))}
     </div>
+    </section>
   );
 }

@@ -1,4 +1,4 @@
-.catSection {
+.container {
   padding: 18px 16px 8px;
 }
 
@@ -17,8 +17,8 @@
   gap: 18px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 6px 44px;        /* space for buttons */
-  scrollbar-width: none;     /* Firefox hide scrollbar */
+  padding: 6px 44px;        
+  scrollbar-width: none;   
 }
 .catScroller::-webkit-scrollbar { display: none; }
 

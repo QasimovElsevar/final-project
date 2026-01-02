@@ -54,18 +54,12 @@
 
 /* ICON BUTTONS */
 .iconBtn {
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-
   display: grid;
   place-items: center;
-
   background: #f3f3f3;
-  text-decoration: none;
-  color: black;
-  font-size: 18px;
-
   transition: background 0.15s ease;
 }
 

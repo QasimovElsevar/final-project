@@ -12,7 +12,7 @@ export default function CategoryRow({ items = [], title = "Nature Images" }) {
   };
 
   return (
-    <section className="catSection">
+    <section className="container">
       <h2 className="catTitle">{title}</h2>
 
       <div className="catWrap">

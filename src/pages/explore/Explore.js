@@ -7,7 +7,7 @@ export default function Explore() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState(""); // 🔍 search text
+  const [query, setQuery] = useState(""); 
 
   const limit = 20;
 
@@ -42,7 +42,6 @@ export default function Explore() {
 
   useEffect(() => {
     loadMore();
-    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -59,14 +58,13 @@ export default function Explore() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [loading]);
 
-  // 🔍 filter images locally
+
   const filteredImages = images.filter((img) =>
     img.author.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
     <div>
-      {/* 🔍 SEARCH BAR */}
       <div className="searchBar">
         <input
           type="text"
@@ -76,11 +74,9 @@ export default function Explore() {
         />
       </div>
 
-      {/* CATEGORY ROW */}
-      <CategoryRow title="Nature Images" items={categories} />
+      <CategoryRow title="Explore" items={categories} />
 
-      {/* GRID */}
-      <ImageGrid images={filteredImages} />
+      <ImageGrid title = {query ? query : "Explore"} images={filteredImages} />
 
       {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
     </div>

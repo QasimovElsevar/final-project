@@ -6,6 +6,8 @@ import Profile from "./pages/profile/Profile";
 import Explore from "./pages/explore/Explore";
 import Downloaded from "./pages/downloaded/Downloaded";
 import logo from "./AppLogo.png";
+import magnifying from "./magnifying.png"
+import profile from "./profile.png"
 
 export default function App() {
   return (
@@ -20,16 +22,16 @@ export default function App() {
 
         {/* CENTER: Links */}
         <div className="navCenter">
-          <NavLink to="/" end className="navLink">Əsas</NavLink>
-          <NavLink to="/profile" className="navLink">Haqqında</NavLink>
-          <NavLink to="/explore" className="navLink">İş nümunələri</NavLink>
-          <NavLink to="/downloaded" className="navLink">Əlaqə</NavLink>
+          <NavLink to="/" end className="navLink">Main</NavLink>
+          <NavLink to="/profile" className="navLink">Profile</NavLink>
+          <NavLink to="/explore" className="navLink">Explore</NavLink>
+          <NavLink to="/downloaded" className="navLink">Downloaded</NavLink>
         </div>
 
         {/* RIGHT: Search + Profile */}
         <div className="navRight">
-          <NavLink to="/explore" className="iconBtn">🔍</NavLink>
-          <NavLink to="/profile" className="iconBtn">👤</NavLink>
+          <NavLink to="/explore"><img src={magnifying} alt="Home"className="iconBtn" /></NavLink>
+          <NavLink to="/profile"><img src={profile} alt="Home"className="iconBtn" /></NavLink>
         </div>
       </nav>
 
