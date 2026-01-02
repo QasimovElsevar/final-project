@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoryRow from "./Category";
 import ImageGrid from "./Grid";
+import Photo from "./Photo";
 import "./Explore.css";
 
 export default function Explore() {
@@ -8,6 +9,7 @@ export default function Explore() {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState(""); 
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const limit = 20;
 
@@ -76,8 +78,12 @@ export default function Explore() {
 
       <CategoryRow title="Explore" items={categories} />
 
-      <ImageGrid title = {query ? query : "Explore"} images={filteredImages} />
+      <ImageGrid title = {query ? query : "Explore"} onSelect = {setSelectedPhoto} images={filteredImages} />
 
+    <Photo
+      photo={selectedPhoto}
+      onClose={() => setSelectedPhoto(null)}
+    />
       {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
     </div>
   );

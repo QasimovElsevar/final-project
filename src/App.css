@@ -40,7 +40,7 @@
   color: black;
   font: 600 14px Arial;
   padding: 8px 14px;
-  border-radius: 999px;
+  border-radius: 10px;
 }
 
 .navLink:hover {
