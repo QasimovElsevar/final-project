@@ -1,17 +1,19 @@
-.modalOverlay {
+/* ===== Modal Overlay ===== */
+.overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.55);
+  background: rgba(0, 0, 0, 0.55);
   display: grid;
   place-items: center;
   padding: 18px;
   z-index: 1000;
 }
 
-.modalCard {
+/* ===== Modal Card ===== */
+.card {
   width: min(900px, 100%);
   max-height: 90vh;
-  background: white;
+  background: #fff;
   border-radius: 16px;
   overflow: hidden;
   position: relative;
@@ -19,7 +21,8 @@
   flex-direction: column;
 }
 
-.modalClose {
+/* ===== Close Button ===== */
+.close {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -27,11 +30,18 @@
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255, 255, 255, 0.9);
   cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
-.modalImg {
+.close:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+/* ===== Image ===== */
+.modal-img {
   width: 100%;
   height: auto;
   max-height: 70vh;
@@ -39,50 +49,83 @@
   background: #111;
 }
 
-.modalMeta {
+/* ===== Bottom area (Meta left, Buttons right) ===== */
+.bottom-elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
   padding: 14px 16px 16px;
+  background: #fff;
 }
 
-.modalTitle {
+/* ===== Meta (left side) ===== */
+.meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
   font-weight: 700;
+  color: #111;
 }
 
-.modalSub {
+.sub {
   margin-top: 4px;
   color: #666;
+  font-size: 14px;
 }
 
-.modalLink {
+.link {
   display: inline-block;
   margin-top: 10px;
   text-decoration: none;
+  color: #2563eb;
+  font-size: 14px;
 }
 
-.modalActions {
+.link:hover {
+  text-decoration: underline;
+}
+
+/* ===== Actions (right side) ===== */
+.actions {
   display: flex;
   gap: 10px;
-  margin-top: 12px;
+  align-items: center;
+  flex-shrink: 0;
 }
 
+/* Button base */
 .actionBtn {
   border: 1px solid #e2e2e2;
   background: #fff;
-  padding: 10px 12px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 600;
+  display: grid;
+  place-items: center;
+  transition: transform 0.12s ease, background 0.12s ease;
 }
 
 .actionBtn:hover {
   background: #f5f5f5;
+  transform: translateY(-1px);
 }
 
+/* Optional "primary" styling */
 .actionBtn.primary {
-  background: #111;
-  color: #fff;
   border-color: #111;
 }
 
 .actionBtn.primary:hover {
-  background: #000;
+  background: #f5f5f5;
+}
+
+/* Icons */
+.like-png {
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
 }

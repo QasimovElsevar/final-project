@@ -1,69 +1,96 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import CategoryRow from "./Category";
 import ImageGrid from "./Grid";
 import Photo from "./Photo";
 import "./Explore.css";
 
+const ACCESS_KEY = process.env.REACT_APP_UNSPLASH_KEY;
+
 export default function Explore() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState(""); 
+
+  const [input, setInput] = useState("");
+  const [query, setQuery] = useState("");
+
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const limit = 20;
+  const didInit = useRef(false);
 
-  const categories = [
-    { id: "flower", title: "Flower Images", countText: "10,000+ Images", coverUrl: "https://picsum.photos/seed/flower/600/400" },
-    { id: "fall", title: "Fall Images", countText: "100+ Images", coverUrl: "https://picsum.photos/seed/fall/600/400" },
-    { id: "rose", title: "Rose Images", countText: "10,000+ Images", coverUrl: "https://picsum.photos/seed/rose/600/400" },
-    { id: "beach", title: "Beach Images", countText: "10,000+ Images", coverUrl: "https://picsum.photos/seed/beach/600/400" },
-  ];
-
-  const loadMore = async () => {
+  const loadPhotos = useCallback(async () => {
     if (loading) return;
+    if (!ACCESS_KEY) return; // stop if env missing
+
     setLoading(true);
 
-    const res = await fetch(
-      `https://picsum.photos/v2/list?page=${page}&limit=${limit}`
-    );
-    const data = await res.json();
+    try {
+      const endpoint = query
+        ? `https://api.unsplash.com/search/photos?page=${page}&per_page=20&query=${encodeURIComponent(
+            query
+          )}`
+        : `https://api.unsplash.com/photos?page=${page}&per_page=20`;
 
-    const mapped = data.map((x) => ({
-      id: `${x.id}-${page}`,
-      url: x.download_url,
-      alt: x.author,
-      link: x.url,
-      author: x.author,
-    }));
+      const res = await fetch(endpoint, {
+        headers: { Authorization: `Client-ID ${ACCESS_KEY}` },
+      });
 
-    setImages((prev) => [...prev, ...mapped]); // ✅ append
-    setPage((p) => p + 1);
-    setLoading(false);
-  };
+      const data = await res.json();
+      const results = query ? data.results : data;
 
+      const mapped = results.map((x) => ({
+        id: x.id,
+        url: x.urls.regular,
+        alt: x.alt_description || "Photo",
+        author: x.user.name,
+        link: x.links.html,
+        download: x.links.download,
+      }));
+
+      setImages((prev) => {
+        const ids = new Set(prev.map((p) => p.id));
+        return [...prev, ...mapped.filter((p) => !ids.has(p.id))];
+      });
+
+      setPage((p) => p + 1);
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setLoading(false);
+    }
+  }, [page, query, loading]);
+
+  // ✅ run once initially (avoid StrictMode double call)
   useEffect(() => {
-    loadMore();
-  }, []);
+    if (didInit.current) return;
+    didInit.current = true;
+    loadPhotos();
+  }, [loadPhotos]);
 
+  // ✅ infinite scroll
   useEffect(() => {
     const onScroll = () => {
       if (
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 300
       ) {
-        loadMore();
+        loadPhotos();
       }
     };
-
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
-  }, [loading]);
+  }, [loadPhotos]);
 
-
-  const filteredImages = images.filter((img) =>
-    img.author.toLowerCase().includes(query.toLowerCase())
-  );
+  const handleSearch = () => {
+    const q = input.trim();
+    setImages([]);
+    setPage(1);
+    setQuery(q);
+    // after query updates, first scroll load will happen when you scroll,
+    // so if you want immediate load:
+    didInit.current = false; // allow new load
+    setTimeout(() => loadPhotos(), 0);
+  };
 
   return (
     <div>
@@ -71,19 +98,19 @@ export default function Explore() {
         <input
           type="text"
           placeholder="Search images..."
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         />
+        <button onClick={handleSearch}>Search</button>
       </div>
 
-      <CategoryRow title="Explore" items={categories} />
+      <CategoryRow title="Explore" items={[]} />
 
-      <ImageGrid title = {query ? query : "Explore"} onSelect = {setSelectedPhoto} images={filteredImages} />
+      <ImageGrid title={query || "Explore"} images={images} onSelect={setSelectedPhoto} />
 
-    <Photo
-      photo={selectedPhoto}
-      onClose={() => setSelectedPhoto(null)}
-    />
+      <Photo photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
+
       {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
     </div>
   );

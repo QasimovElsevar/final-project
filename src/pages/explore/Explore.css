@@ -20,3 +20,32 @@
   background: white;
   border-color: #ccc;
 }
+
+.searchBar {
+  display: flex;
+  gap: 10px;
+  max-width: 700px;
+  margin: 20px auto 30px;
+}
+
+.searchBar input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+.searchBar button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.searchBar button:hover {
+  opacity: 0.9;
+}

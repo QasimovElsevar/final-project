@@ -11,11 +11,11 @@ export default function ImageGrid({ images, title = "Nature Images", onSelect })
     <section className="container">
       <h2 className="catTitle">{title}</h2>
 
-      <div className="masonry">
+      <div className="grid">
         {images.map((img) => (
           <a
             key={img.id}
-            className="masonry__item"
+            className="item"
             href={img.link || "#"}
             target="_blank"
             rel="noreferrer"

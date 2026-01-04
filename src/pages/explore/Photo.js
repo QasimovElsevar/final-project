@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import heart from "./heart.png"
+import download from "./downloadImage.png"
 import "./Photo.css";
 
 const LS_LIKED = "liked_photos";
@@ -54,35 +56,35 @@ export default function PhotoModal({ photo, onClose }) {
   };
 
   return (
-    <div className="modalOverlay" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="modalCard" onClick={(e) => e.stopPropagation()}>
-        <button className="modalClose" onClick={onClose} aria-label="Close">
+    <div className="overlay" onClick={onClose} role="dialog" aria-modal="true">
+      <div className="card" onClick={(e) => e.stopPropagation()}>
+        <button className="close" onClick={onClose} aria-label="Close">
           ✕
         </button>
 
-        <img className="modalImg" src={photo.url} alt={photo.alt || "photo"} />
-
-        <div className="modalMeta">
-          <div className="modalTitle">{photo.alt || "Photo"}</div>
-          {photo.author ? <div className="modalSub">by {photo.author}</div> : null}
-
-          {/* Buttons */}
-          <div className="modalActions">
-            <button className="actionBtn" onClick={handleLike}>
-              ❤️ Like
-            </button>
-
-            <button className="actionBtn primary" onClick={handleDownload}>
-              ⬇️ Download
-            </button>
-          </div>
+        <img className="modal-img" src={photo.url} alt={photo.alt || "photo"} />
+        <div className="bottom-elements">
+        <div className="meta">
+          <div className="title">{photo.alt || "Photo"}</div>
+          {photo.author ? <div className="sub">by {photo.author}</div> : null}
 
           {photo.link ? (
-            <a className="modalLink" href={photo.link} target="_blank" rel="noreferrer">
+            <a className="link" href={photo.link} target="_blank" rel="noreferrer">
               Open source
             </a>
           ) : null}
         </div>
+        {/* Buttons */}
+          <div className="actions">
+            <button className="actionBtn" onClick={handleLike}>
+              <img src={heart} alt="Home" className="like-png" />
+            </button>
+
+            <button className="actionBtn primary" onClick={handleDownload}>
+               <img src={download} alt="Home" className="like-png" />
+            </button>
+          </div>
+          </div>
       </div>
     </div>
   );

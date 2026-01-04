@@ -1,11 +1,14 @@
 .profilePage {
   min-height: 100vh;
-  /* background: #0b0b0b; */
-  /* color: #fff; */
+  background: #f8f9fb;
+  color: #111;
 }
+
+/* ===== Header ===== */
 
 .profileHeader {
   padding: 28px 18px 14px;
+  background: #f8f9fb;
 }
 
 .profileRow {
@@ -19,18 +22,18 @@
   width: 64px;
   height: 64px;
   border-radius: 999px;
-  background: #d9d9d9;
+  background: #e5e7eb;
   position: relative;
   overflow: hidden;
 }
 
-/* simple "user" circle inside */
+/* inner user circle */
 .avatar::after {
   content: "";
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  background: rgba(0,0,0,0.12);
+  background: rgba(0, 0, 0, 0.08);
   position: absolute;
   top: 14px;
   left: 15px;
@@ -41,41 +44,25 @@
   font-weight: 800;
   margin: 0;
   letter-spacing: 0.2px;
+  color: #111;
 }
-
-.segmented {
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 12px;
-  padding: 4px;
-  display: inline-flex;
-  width: 100%;
-  max-width: 520px;
-}
-
-.segBtn {
-  flex: 1;
-  border: 0;
-  background: transparent;
-  color: rgba(255,255,255,0.85);
-  padding: 12px 10px;
-  font-size: 16px;
-  border-radius: 10px;
-  cursor: default;
-}
-
-.segBtn.active {
-  background: rgba(255,255,255,0.18);
-  color: #fff;
-  font-weight: 700;
-}
+/* ===== Content ===== */
 
 .profileContent {
-  padding: 10px 14px 30px;
+  padding: 0px 0px 30px;
 }
 
 .emptyText {
   text-align: center;
-  opacity: 0.75;
+  color: #666;
   margin-top: 40px;
+}
+
+.likedTitle {
+  margin: 6px 0 0;
+  padding-left: 30px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #555;
+  letter-spacing: 0.3px;
 }

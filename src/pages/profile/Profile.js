@@ -14,23 +14,16 @@ export default function Profile() {
 
   return (
     <div className="profilePage">
-      {/* Top header area */}
       <header className="profileHeader">
         <div className="profileRow">
           <div className="avatar" aria-hidden="true" />
           <h1 className="profileName">Elsevar Qasímov</h1>
         </div>
-
-        {/* Segmented control (only Likes) */}
-        <div className="segmented">
-          <button className="segBtn active" type="button">
-            Likes
-          </button>
-        </div>
       </header>
 
-      {/* Content */}
       <main className="profileContent">
+         <h2 className="likedTitle">Liked</h2>
+
         {liked.length === 0 ? (
           <p className="emptyText">No liked photos yet</p>
         ) : (
@@ -38,7 +31,6 @@ export default function Profile() {
         )}
       </main>
 
-      {/* Popup modal */}
       <PhotoModal photo={selected} onClose={() => setSelected(null)} />
     </div>
   );

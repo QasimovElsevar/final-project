@@ -1,68 +1,64 @@
-/* NAV BAR */
-.topnav {
-  height: 72px;
-  padding: 0 24px;
+/* make sure page can scroll normally */
+.App {
+  min-height: 100vh;
+}
 
+/* STICKY NAV */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: white;        /* important so content doesn't show through */
+  border-bottom: 1px solid #eaeaea;
+
+  height: 70px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  background: white;
-  border-bottom: 1px solid #eaeaea;
+  padding: 0 18px;
 }
 
-/* LEFT */
-.navLeft {
+/* optional: add spacing so content doesn't touch the nav */
+.page {
+  padding-top: 12px;
+}
+
+/* your layout groups */
+.navLeft,
+.navCenter,
+.navRight {
   display: flex;
   align-items: center;
-}
-
-/* CENTER */
-.navCenter {
-  display: flex;
   gap: 14px;
 }
 
-/* RIGHT */
-.navRight {
-  display: flex;
-  gap: 10px;
+.navCenter {
+  gap: 22px;
 }
 
-/* LOGO */
-.navLogo {
-  height: 50px;
-}
-
-/* TEXT LINKS */
+/* links */
 .navLink {
   text-decoration: none;
-  color: black;
-  font: 600 14px Arial;
-  padding: 8px 14px;
-  border-radius: 10px;
-}
-
-.navLink:hover {
-  background: #f3f3f3;
+  color: #111;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
 }
 
 .navLink.active {
-  background: black;
-  color: white;
+  background: #111;
+  color: #fff;
 }
 
-/* ICON BUTTONS */
+/* icons */
 .iconBtn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #f3f3f3;
-  transition: background 0.15s ease;
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
 }
 
-.iconBtn:hover {
-  background: #e8e8e8;
+.navLogo {
+  height: 54px;
 }

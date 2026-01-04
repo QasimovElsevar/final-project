@@ -2,37 +2,37 @@
   padding: 18px 16px 8px;
 }
 
-.masonry {
+.grid {
   column-count: 3;
-  column-gap: 16px;
+  column-gap: 5px;
   padding: 16px;
 }
 
 @media (max-width: 1100px) {
-  .masonry { column-count: 2; }
+  .grid { column-count: 2; }
 }
 
 @media (max-width: 700px) {
-  .masonry { column-count: 1; }
+  .grid { column-count: 1; }
 }
 
-.masonry__item {
+.item {
   display: inline-block;
   width: 100%;
-  margin: 0 0 16px;
-  border-radius: 14px;
+  margin: 0 0 2px;
+  border-radius: 3px;
   overflow: hidden;
   break-inside: avoid;
   background: #f3f3f3;
 }
 
-.masonry__item img {
+.item img {
   width: 100%;
   height: auto;
   display: block;
   transition: transform 200ms ease;
 }
 
-.masonry__item:hover img {
+.item:hover img {
   transform: scale(1.02);
 }
