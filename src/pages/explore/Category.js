@@ -1,7 +1,11 @@
 import { useRef } from "react";
 import "./Category.css";
 
-export default function CategoryRow({ items = [], title = "Nature Images" }) {
+export default function CategoryRow({
+  items = [],
+  title = "Explore",
+  onSelectCategory,
+}) {
   const scrollerRef = useRef(null);
 
   const scrollByAmount = (dir) => {
@@ -12,7 +16,7 @@ export default function CategoryRow({ items = [], title = "Nature Images" }) {
   };
 
   return (
-    <section className="container">
+    <section className="catSection">
       <h2 className="catTitle">{title}</h2>
 
       <div className="catWrap">
@@ -20,21 +24,31 @@ export default function CategoryRow({ items = [], title = "Nature Images" }) {
           className="catBtn catBtnLeft"
           onClick={() => scrollByAmount(-1)}
           aria-label="Scroll left"
+          type="button"
         >
           ‹
         </button>
 
         <div className="catScroller" ref={scrollerRef}>
           {items.map((c) => (
-            <div className="catCard" key={c.id}>
+            <button
+              key={c.id + c.title}   
+              type="button"
+              className="catCard"
+              onClick={() => onSelectCategory?.(c)}
+              title={`Search: ${c.title}`}
+            >
               <div className="catImgWrap">
                 <img className="catImg" src={c.coverUrl} alt={c.title} />
               </div>
+
               <div className="catMeta">
                 <div className="catName">{c.title}</div>
-                {c.countText ? <div className="catCount">{c.countText}</div> : null}
+                {c.countText ? (
+                  <div className="catCount">{c.countText}</div>
+                ) : null}
               </div>
-            </div>
+            </button>
           ))}
         </div>
 
@@ -42,6 +56,7 @@ export default function CategoryRow({ items = [], title = "Nature Images" }) {
           className="catBtn catBtnRight"
           onClick={() => scrollByAmount(1)}
           aria-label="Scroll right"
+          type="button"
         >
           ›
         </button>
