@@ -13,14 +13,13 @@ export default function App() {
   return (
     <div className="App">
       <nav className="topnav">
-        {/* LEFT: Logo */}
+
         <div className="navLeft">
           <NavLink to="/">
             <img src={logo} alt="Home" className="navLogo" />
           </NavLink>
         </div>
 
-        {/* CENTER: Links */}
         <div className="navCenter">
           <NavLink to="/" end className="navLink">Main</NavLink>
           <NavLink to="/profile" className="navLink">Profile</NavLink>
@@ -28,7 +27,7 @@ export default function App() {
           <NavLink to="/downloaded" className="navLink">Downloaded</NavLink>
         </div>
 
-        {/* RIGHT: Search + Profile */}
+
         <div className="navRight">
           <NavLink to="/explore"><img src={magnifying} alt="Home"className="iconBtn" /></NavLink>
           <NavLink to="/profile"><img src={profile} alt="Home"className="iconBtn" /></NavLink>

@@ -2,9 +2,9 @@ import "./ImageGrid.css";
 
 export default function ImageGrid({ images, title = "Nature Images", onSelect }) {
   const handleClick = (e, img) => {
-    if (!onSelect) return;        // if no modal handler, keep normal link behavior
-    e.preventDefault();           // stop opening new tab
-    onSelect(img);                // open modal
+    if (!onSelect) return;       
+    e.preventDefault();          
+    onSelect(img);                
   };
 
   return (

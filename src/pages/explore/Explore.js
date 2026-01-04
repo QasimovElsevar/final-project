@@ -20,7 +20,7 @@ export default function Explore() {
 
   const loadPhotos = useCallback(async () => {
     if (loading) return;
-    if (!ACCESS_KEY) return; // stop if env missing
+    if (!ACCESS_KEY) return; 
 
     setLoading(true);
 
@@ -60,14 +60,12 @@ export default function Explore() {
     }
   }, [page, query, loading]);
 
-  // ✅ run once initially (avoid StrictMode double call)
   useEffect(() => {
     if (didInit.current) return;
     didInit.current = true;
     loadPhotos();
   }, [loadPhotos]);
 
-  // ✅ infinite scroll
   useEffect(() => {
     const onScroll = () => {
       if (
@@ -86,9 +84,8 @@ export default function Explore() {
     setImages([]);
     setPage(1);
     setQuery(q);
-    // after query updates, first scroll load will happen when you scroll,
-    // so if you want immediate load:
-    didInit.current = false; // allow new load
+    
+    didInit.current = false; 
     setTimeout(() => loadPhotos(), 0);
   };
 

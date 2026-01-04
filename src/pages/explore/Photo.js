@@ -17,7 +17,6 @@ function readList(key) {
 function saveUnique(key, photo) {
   const list = readList(key);
 
-  // Use a stable id (prefer original id if you have it)
   const exists = list.some((p) => p.id === photo.id);
   if (!exists) {
     const updated = [photo, ...list];
@@ -38,13 +37,12 @@ export default function PhotoModal({ photo, onClose }) {
 
   const handleLike = () => {
     saveUnique(LS_LIKED, photo);
-    alert("Saved to Liked ✅");
+    alert("Saved to Liked");
   };
 
   const handleDownload = () => {
     saveUnique(LS_DOWNLOADED, photo);
 
-    // optional: actually download the image file too
     const a = document.createElement("a");
     a.href = photo.url;
     a.download = `photo-${photo.id || "image"}.jpg`;
@@ -52,7 +50,7 @@ export default function PhotoModal({ photo, onClose }) {
     a.click();
     a.remove();
 
-    alert("Saved to Downloaded ✅");
+    alert("Saved to Downloaded");
   };
 
   return (

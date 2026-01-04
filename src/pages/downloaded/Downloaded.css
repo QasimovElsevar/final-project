@@ -1,0 +1,19 @@
+.down-png {
+    height: 34px;
+}
+
+span {
+    font-size: 22px;
+}
+
+h1 { 
+    text-align: "center";
+    margin: "32px 0" 
+}
+
+.download {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
