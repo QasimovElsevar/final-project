@@ -75,7 +75,7 @@ export default function Feed() {
   return (
     <div>
       <ImageGrid
-        title="Explore photos"
+        title="See what's new"
         images={photos}
         onSelect={setSelected}
       />

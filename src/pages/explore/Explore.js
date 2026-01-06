@@ -115,7 +115,7 @@ export default function Explore() {
     setInput(q);
     setImages([]);
     setPage(1);
-    setQuery(q);
+    setQuery(q); 
 
   didInit.current = false;
     setTimeout(() => loadPhotos(), 0);
@@ -139,7 +139,7 @@ export default function Explore() {
         <button onClick={handleSearch}>Search</button>
       </div>
 
-      <CategoryRow title="Explore" items={categories} onSelectCategory={handleCategoryClick} />
+      <CategoryRow title="Categories" items={categories} onSelectCategory={handleCategoryClick} />
 
       <ImageGrid
         title={query || "Explore"}
