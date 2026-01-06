@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/final-project/static/css/main.50901cc3.css",
+    "main.js": "/final-project/static/js/main.414947d7.js",
+    "static/js/453.17e84acf.chunk.js": "/final-project/static/js/453.17e84acf.chunk.js",
+    "static/media/heart.png": "/final-project/static/media/heart.5990f66c8f23a2c08649.png",
+    "static/media/AppLogo.png": "/final-project/static/media/AppLogo.32fd85e79bacf960838c.png",
+    "static/media/people.jpg": "/final-project/static/media/people.c05db921174c5a8e1477.jpg",
+    "static/media/photography.jpg": "/final-project/static/media/photography.15703d453face1c49243.jpg",
+    "static/media/architecture.jpg": "/final-project/static/media/architecture.69cc32acdf8ed192f0b6.jpg",
+    "static/media/holidays.jpg": "/final-project/static/media/holidays.07d48fdceb4b0bc2d638.jpg",
+    "static/media/travel.jpg": "/final-project/static/media/travel.150703646d099aa1c6fe.jpg",
+    "static/media/wallpapers.jpg": "/final-project/static/media/wallpapers.cc41dc9a216fae155562.jpg",
+    "static/media/nature.jpg": "/final-project/static/media/nature.2b795632efe7d9501297.jpg",
+    "static/media/film.jpg": "/final-project/static/media/film.7a045c5d65e29e28622a.jpg",
+    "static/media/magnifying.png": "/final-project/static/media/magnifying.8c889a43d93104a2bd12.png",
+    "static/media/texture.jpg": "/final-project/static/media/texture.7b1b366cc6ee94bbca81.jpg",
+    "static/media/downloadImage.png": "/final-project/static/media/downloadImage.dff024ba5bff5b5d8ec7.png",
+    "index.html": "/final-project/index.html",
+    "main.50901cc3.css.map": "/final-project/static/css/main.50901cc3.css.map",
+    "main.414947d7.js.map": "/final-project/static/js/main.414947d7.js.map",
+    "453.17e84acf.chunk.js.map": "/final-project/static/js/453.17e84acf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.50901cc3.css",
+    "static/js/main.414947d7.js"
+  ]
+}
